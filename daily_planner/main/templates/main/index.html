@@ -1,0 +1,15 @@
+{% extends 'main/layout.html' %}
+
+
+{% block title %}Главная страница{% endblock %}
+
+{% block content %}
+    <div class="features">
+        <h1>{{ title }}</h1>
+        <p>домашняя страница сайта daily_planner</p>
+        {% for element in values %}
+            {{ element }}
+        {% endfor %}
+
+    </div>
+{% endblock %}

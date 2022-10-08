@@ -1,0 +1,16 @@
+{% extends 'main/layout.html' %}
+
+
+{% block title %}Удаление долгосрочной цели{% endblock %}
+
+{% block content %}
+    <div class="features">
+        <h1>Удаление долгосрочной цели</h1>
+        <h6> Вы действительно хотите удалить долгосрочную цель: "{{goal.goal_title}}" ?</h6>
+        <form method="post">
+            {% csrf_token %}
+
+            <button class="btn btn-success" type="submit">Удалить цель</button>
+        </form>
+    </div>
+{% endblock %}

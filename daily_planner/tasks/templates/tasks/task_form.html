@@ -1,0 +1,19 @@
+{% extends 'main/layout.html' %}
+
+
+{% block title %}Форма для создания ежедневной задачи{% endblock %}
+
+{% block content %}
+    <div class="features">
+        <h1>Создайте новую еждневную задачу</h1>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.task_tittle }}
+            {{ form.description }}
+            {{ form.date_time }}
+            {{ form.complete }}
+            <span>{{ error }}</span>
+            <button class="btn btn-success" type="submit">Добавить задачу</button>
+        </form>
+    </div>
+{% endblock %}

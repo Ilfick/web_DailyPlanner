@@ -1,0 +1,26 @@
+{% extends 'main/layout.html' %}
+
+{% block title %}Заметки{% endblock %}
+
+{% block content %}
+    <div class="features_note">
+        <h1>Заметки</h1>
+
+        <form method="GET">
+            <input type="text" name="search-area" value="{{search_input}}">
+            <input type="submit" value="Найти">
+        </form>
+
+        <a href="{% url 'note_form' %}"><button class="btn btn-info"><i class="fa-solid fa-circle-plus">
+        </i>Добавить заметку</button></a>
+        <div class="notes_items">
+            {% if note_list %}
+                {% for note in note_list %}
+                    <h5><a href="{% url 'note_view' note.id %}"> {{ note.note_tittle }} | {{ note.date }} </a></h5>
+                {% endfor %}
+            {% else %}
+                <h3>Список заметок пуст, хотите добавить?</h3>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}

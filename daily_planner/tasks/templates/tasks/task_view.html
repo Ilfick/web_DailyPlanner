@@ -1,0 +1,17 @@
+{% extends 'main/layout.html' %}
+
+
+{% block title %}{{ task.task_tittle }}{% endblock %}
+
+{% block content %}
+    <div class="features">
+        <h1>{{ task.task_tittle }}</h1>
+        <p>{{ task.description }}</p>
+        <p>{{ task.date_time }}</p>
+        <p>{{ task.complete }}</p>
+        <a href="{% url 'task_update' task.id %}" class="btn btn-warning">изменить</a>
+        <a href="{% url 'task_delete' task.id %}" class="btn btn-danger">удалить</a>
+
+
+    </div>
+{% endblock %}

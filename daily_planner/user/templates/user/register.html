@@ -1,0 +1,29 @@
+{% extends 'main/layout.html' %}
+
+
+{% block title %}Форма для регистрации пользователя{% endblock %}
+
+
+{% block content %}
+    {% if messages %}
+        {% for message in messages %}
+            {% if message.tags == 'error' %}
+                <div class="alert alert-danger" role="alert">
+                    {{ message }}
+                </div>
+            {% else %}
+                <div class="alert alert-{{ message.tags }}" role="alert">
+                    {{ message }}
+                </div>
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+    <div class="features">
+        <h1>Форма для регистрации пользователя</h1>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button class="btn btn-success" type="submit">Зарегистрироваться</button>
+        </form>
+    </div>
+{% endblock %}

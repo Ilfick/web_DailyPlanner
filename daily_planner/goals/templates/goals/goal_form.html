@@ -1,0 +1,20 @@
+{% extends 'main/layout.html' %}
+
+
+{% block title %}Форма для добавления цели{% endblock %}
+
+{% block content %}
+    <div class="features">
+        <h1>Форма для добавления цели</h1>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.goal_title }}
+            {{ form.goal_description }}
+            {{ form.subtasks }}
+            {{ form.date }}
+            {{ form.deadline }}
+            <span>{{ error }}</span>
+            <button class="btn btn-success" type="submit">Добавить цель</button>
+        </form>
+    </div>
+{% endblock %}

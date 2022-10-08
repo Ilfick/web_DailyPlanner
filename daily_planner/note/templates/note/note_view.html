@@ -1,0 +1,14 @@
+{% extends 'main/layout.html' %}
+
+{% block title %}{{ note.note_tittle }}{% endblock %}
+
+{% block content %}
+    <div class="features">
+        <h2>{{ note_view.note_tittle }} Дата: {{ note_view.date }}</h2>
+        <p>{{ note_view.description }}</p>
+
+        <a href="{% url 'note_update' note_view.id %}" class="btn btn-warning">изменить</a>
+        <a href="{% url 'note_delete' note_view.id %}" class="btn btn-danger">удалить</a>
+
+    </div>
+{% endblock %}

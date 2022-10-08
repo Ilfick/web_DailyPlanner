@@ -1,0 +1,28 @@
+{% extends 'main/layout.html' %}
+
+
+{% block title %}Ежедневные задачи{% endblock %}
+
+{% block content %}
+    <div class="features">
+        <h1>Ежедневные задачи</h1>
+        <a href="{% url 'task_form' %}"><button class="btn btn-info"><i class="fa-solid fa-circle-plus">
+        </i>Добавить задачу</button></a>
+        {% if count == 0 %}
+            <h3>Список ежедневных задач пуст, хотите добавить?</h3>
+        {% else %}
+            <h3>На сегодня у вас осталось следующее количесвто задач: <i>{{count}}</i> </h3>
+        {% endif %}
+
+        <div class="task_items">
+            {% for task in task_list %}
+                {% if task.complete %}
+                    <i><s><a href="{% url 'task_update' task.id %}">{{task}}</a></s></i>
+                {% else %}
+                    <a href="{% url 'task_update' task.id %}">{{task}}</a>
+                {% endif %}
+                <a class="delete-link" href="{% url 'task_delete' task.id %}">&#215;</a>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
