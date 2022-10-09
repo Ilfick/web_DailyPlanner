@@ -12,8 +12,6 @@
             <div class="alert alert-warning">
                 <h3>{{ element.goal_title }}</h3>
                 <p>{{ element.goal_description }}</p>
-                <!-- goal-detail это ключ указзаный в urls данного приложения-->
-                <!-- element.id для динамического указанния id целей из БД-->
                 <a href="{% url 'goal-detail' element.id %}" class="btn btn-warning">Читать детальнее</a>
             </div>
             {% endfor %}

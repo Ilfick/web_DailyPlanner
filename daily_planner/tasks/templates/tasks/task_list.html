@@ -17,11 +17,13 @@
         <div class="task_items">
             {% for task in task_list %}
                 {% if task.complete %}
-                    <i><s><a href="{% url 'task_update' task.id %}">{{task}}</a></s></i>
+                    <h6><i><s><a href="{% url 'task_update' task.id %}">{{task}}
+                        <a class="delete-link" href="{% url 'task_delete' task.id %}">&#215;</a></a></s></i></h6>
                 {% else %}
-                    <a href="{% url 'task_update' task.id %}">{{task}}</a>
+                    <h6><a href="{% url 'task_update' task.id %}">{{task}}</a>
+                        <a class="delete-link" href="{% url 'task_delete' task.id %}">&#215;</a></h6>
                 {% endif %}
-                <a class="delete-link" href="{% url 'task_delete' task.id %}">&#215;</a>
+
             {% endfor %}
         </div>
     </div>

@@ -12,7 +12,7 @@ class Goal(models.Model):
     complete = models.BooleanField(default=False)
 
     def __str__(self):
-        """"функция для вывода название цели на странице(по дефолту выводится id)"""
+        """"функция для вывода название цели на странице"""
         return self.goal_title
 
     class Meta:

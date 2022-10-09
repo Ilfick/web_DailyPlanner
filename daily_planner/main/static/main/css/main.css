@@ -67,10 +67,10 @@ form {
 }
 
 .task_items {
-    font-size: 50px;
+    font-size: 15px;
     float: left;
     clear: both;
-    width: 200px;
+    width: 600px;
     margin: 10px 15%;
     text-align: left;
 }

@@ -14,7 +14,6 @@ class NoteList(LoginRequiredMixin, ListView):
         context = super().get_context_data(**kwargs)
         context['note_list'] = context['note_list'].filter(user=self.request.user)
 
-        """для поиска заметок, применение get позволяет ввести текст для поиска"""
         search_input = self.request.GET.get('search-area') or ''
         if search_input:
             context['note_list'] = context['note_list'].filter(
@@ -42,7 +41,6 @@ class NoteCreate(LoginRequiredMixin, CreateView):
 class NoteUpdate(LoginRequiredMixin, UpdateView):
     model = Note
     fields = '__all__'
-    # используется тот же самый шаблон, что и для добавления цели
     template_name = 'note/note_form.html'
     success_url = reverse_lazy('note_list')
 
